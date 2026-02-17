@@ -13,4 +13,17 @@ q -> quartz
 a -> ancient debris
 
 _
-biome
+unknown
+mineshaft
+lushcave
+dripstone
+deepdark
+stronghold
+trialchamber
+mountain
+ancientcity
+water
+mesa
+dungeon
+geode
+lava
