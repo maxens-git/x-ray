@@ -29,7 +29,9 @@
 
 # Nomenclature des images
 
-Format : `{a_minerai|s}_{biome}.png`
+Format : `{indice}_{a|s}_{minerai}_{biome}.png`
+
+> **Note :** indices 1-100 et 200-258 déjà utilisés
 
 **Préfixe :**
 | Code | Signification |
@@ -51,4 +53,27 @@ Format : `{a_minerai|s}_{biome}.png`
 | **q** | quartz |
 | **a** | ancient debris |
 
-**Biome :** nom du biome (ex: water, unknown, lunshcave, lava, stronghold, mineshaft...)
+**Biomes :**
+| Biome |
+| :--- |
+| unknown |
+| mineshaft |
+| lushcave |
+| dripstone |
+| deepdark |
+| stronghold |
+| trialchamber |
+| mountain |
+| ancientcity |
+| water |
+| mesa |
+| dungeon |
+| geode |
+| lava |
+| crimson |
+| warped |
+| fortress |
+| bastion |
+| basalt |
+| soulsand |
+| nether |
