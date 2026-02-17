@@ -27,3 +27,10 @@ mesa
 dungeon
 geode
 lava
+crimson
+warped
+fortress
+bastion
+basalt
+soulsand
+nether
