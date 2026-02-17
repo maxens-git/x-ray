@@ -26,3 +26,29 @@
 | **NETHERQUARTZ** | Minerai de quartz |
 | **NETHERGOLD** | Minerai de or nether |
 | **ANCIENTDEBRIS** | Minerai de netherite |
+
+# Nomenclature des images
+
+Format : `{a_minerai|s}_{biome}.png`
+
+**Préfixe :**
+| Code | Signification |
+| :--- | :--- |
+| **a** | avec |
+| **s** | sans |
+
+**Minerais :**
+| Code | Minerai |
+| :--- | :--- |
+| **c** | charbon |
+| **f** | fer |
+| **u** | cuivre |
+| **o** | or |
+| **d** | diamant |
+| **e** | émeraude |
+| **l** | lapis |
+| **r** | redstone |
+| **q** | quartz |
+| **a** | ancient debris |
+
+**Biome :** nom du biome (ex: water, unknown, lunshcave, lava, stronghold, mineshaft...)
