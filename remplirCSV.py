@@ -1,89 +1,98 @@
+import csv
 import os
 import glob
-import csv
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
-def parse_voc_xml(xml_path: str):
-    """
-    Parse un XML type Pascal VOC et retourne une liste de lignes (dict)
-    avec: filename,width,height,name,xmin,ymin,xmax,ymax
-    """
+CSV_PATH = "dataset/index.csv"
+IMAGES_DIR = "dataset/images"
+
+def parse_xml(xml_path):
+    """Parse un fichier XML Pascal VOC et retourne une liste d'objets"""
     tree = ET.parse(xml_path)
     root = tree.getroot()
-
-    # filename
-    filename = root.findtext("filename")
-    if not filename:
-        # fallback: parfois absent -> on met le nom du xml
-        filename = os.path.splitext(os.path.basename(xml_path))[0]
-
-    # size
+    
     size = root.find("size")
     width = size.findtext("width") if size is not None else ""
     height = size.findtext("height") if size is not None else ""
-
-    rows = []
+    
+    objects = []
     for obj in root.findall("object"):
-        name = obj.findtext("name", default="")
-
+        class_name = obj.findtext("name", "").upper()
         bndbox = obj.find("bndbox")
-        if bndbox is None:
-            continue
+        if bndbox is not None:
+            objects.append({
+                "width": width,
+                "height": height,
+                "class": class_name,
+                "xmin": bndbox.findtext("xmin", ""),
+                "ymin": bndbox.findtext("ymin", ""),
+                "xmax": bndbox.findtext("xmax", ""),
+                "ymax": bndbox.findtext("ymax", ""),
+            })
+    
+    return objects
 
-        xmin = bndbox.findtext("xmin", default="")
-        ymin = bndbox.findtext("ymin", default="")
-        xmax = bndbox.findtext("xmax", default="")
-        ymax = bndbox.findtext("ymax", default="")
-
-        rows.append({
-            "filename": filename,
-            "width": width,
-            "height": height,
-            "name": name,
-            "xmin": xmin,
-            "ymin": ymin,
-            "xmax": xmax,
-            "ymax": ymax,
-        })
-
-    return rows
-
-
-def xmls_to_csv(xml_input: str, csv_output: str):
-    """
-    xml_input peut être:
-      - un fichier unique: /chemin/fichier.xml
-      - un dossier: /chemin/dossier
-      - un pattern glob: /chemin/*.xml
-    """
-    if os.path.isdir(xml_input):
-        xml_files = sorted(glob.glob(os.path.join(xml_input, "*.xml")))
-    elif any(ch in xml_input for ch in ["*", "?", "["]):
-        xml_files = sorted(glob.glob(xml_input))
+def main():
+    fieldnames = ["id", "data", "path", "class", "width", "height", "xmin", "ymin", "xmax", "ymax", "meta"]
+    
+    # Lire les entrées existantes
+    existing_rows = []
+    existing_entries = set()  # (path, class, xmin, ymin, xmax, ymax)
+    max_id = 0
+    
+    if os.path.exists(CSV_PATH):
+        with open(CSV_PATH, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                existing_rows.append(row)
+                key = (row["path"], row["class"], row["xmin"], row["ymin"], row["xmax"], row["ymax"])
+                existing_entries.add(key)
+                try:
+                    max_id = max(max_id, int(row["id"]))
+                except ValueError:
+                    pass
+    
+    # Scanner tous les fichiers XML
+    xml_files = glob.glob(os.path.join(IMAGES_DIR, "*.xml"))
+    new_rows = []
+    
+    for xml_path in sorted(xml_files):
+        basename = os.path.basename(xml_path).replace(".xml", "")
+        relative_path = f"images/{basename}.png"
+        
+        objects = parse_xml(xml_path)
+        for data in objects:
+            key = (relative_path, data["class"], data["xmin"], data["ymin"], data["xmax"], data["ymax"])
+            
+            if key not in existing_entries:
+                max_id += 1
+                new_row = {
+                    "id": max_id,
+                    "data": "TRAIN",
+                    "path": relative_path,
+                    "class": data["class"],
+                    "width": data["width"],
+                    "height": data["height"],
+                    "xmin": data["xmin"],
+                    "ymin": data["ymin"],
+                    "xmax": data["xmax"],
+                    "ymax": data["ymax"],
+                    "meta": "",
+                }
+                new_rows.append(new_row)
+                existing_entries.add(key)
+                print(f"+ {relative_path}: {data['class']} bbox=({data['xmin']},{data['ymin']})-({data['xmax']},{data['ymax']})")
+    
+    if new_rows:
+        all_rows = existing_rows + new_rows
+        with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(all_rows)
+        print(f"\n{len(new_rows)} nouvelle(s) ligne(s) ajoutée(s)")
     else:
-        xml_files = [xml_input]
-
-    if not xml_files:
-        raise FileNotFoundError(f"Aucun fichier XML trouvé pour: {xml_input}")
-
-    fieldnames = ["filename", "width", "height", "name", "xmin", "ymin", "xmax", "ymax"]
-
-    with open(csv_output, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-
-        for xml_path in xml_files:
-            for row in parse_voc_xml(xml_path):
-                writer.writerow(row)
-
-    print(f"OK -> CSV généré: {csv_output} ({len(xml_files)} XML traités)")
-
+        print("Aucune nouvelle entrée à ajouter")
 
 if __name__ == "__main__":
-    # Exemple 1: fichier unique (ton cas)
-    cwd = Path.cwd()
-    xml_dir = cwd / "dataset/images" 
-    csv_output = cwd / "annotations.csv"
-    xmls_to_csv(str(xml_dir), str(csv_output))
+    main()
 
