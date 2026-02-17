@@ -15,8 +15,8 @@
 
 | Classe | Description |
 | :--- | :--- |
-| **FER** | Minerai de fer |
-| **CHARBON** | Minerai de charbon |
+| **IRON** | Minerai de fer |
+| **COAL** | Minerai de charbon |
 | **REDSTONE** | Minerai de charbon |
 | **GOLD** | Minerai de or |
 | **COPPER** | Minerai de cuivre |
