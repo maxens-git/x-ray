@@ -1,0 +1,16 @@
+a -> avec
+s -> sans
+_
+c -> charbon
+f -> fer
+u -> cuivre
+o -> or
+d -> diamant
+e -> emeraude
+l -> lapis
+r -> redstone
+q -> quartz
+a -> ancient debris
+
+_
+biome
