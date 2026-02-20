@@ -52,6 +52,7 @@ Format : `{indice}_{a_minerai|s}_{biome}.png`
 | **r** | redstone |
 | **q** | quartz |
 | **a** | ancient debris |
+| **n** | or nether |
 
 **Biomes :**
 | Biome |
