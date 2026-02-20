@@ -29,7 +29,7 @@
 
 # Nomenclature des images
 
-Format : `{indice}_{a|s}_{minerai}_{biome}.png`
+Format : `{indice}_{a_minerai|s}_{biome}.png`
 
 > **Note :** indices 1-100 et 200-258 déjà utilisés
 
@@ -52,6 +52,7 @@ Format : `{indice}_{a|s}_{minerai}_{biome}.png`
 | **r** | redstone |
 | **q** | quartz |
 | **a** | ancient debris |
+| **n** | or nether |
 
 **Biomes :**
 | Biome |
