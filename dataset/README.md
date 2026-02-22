@@ -31,7 +31,7 @@
 
 Format : `{indice}_{a_minerai|s}_{biome}.png`
 
-> **Note :** indices 1-100 et 200-258 déjà utilisés
+> **Note :** indices 1-258 déjà utilisés
 
 **Préfixe :**
 | Code | Signification |
