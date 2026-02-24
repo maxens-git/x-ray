@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>119_a_l_unknown.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/119_a_l_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>lapis</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>260</xmin>
+			<ymin>114</ymin>
+			<xmax>486</xmax>
+			<ymax>308</ymax>
+		</bndbox>
+	</object>
+</annotation>
