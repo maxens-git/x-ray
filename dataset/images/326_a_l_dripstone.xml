@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>326_a_l_dripstone.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/326_a_l_dripstone.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>lapis</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>102</xmin>
+			<ymin>163</ymin>
+			<xmax>246</xmax>
+			<ymax>220</ymax>
+		</bndbox>
+	</object>
+</annotation>
