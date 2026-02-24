@@ -15,17 +15,17 @@
 
 | Classe | Description |
 | :--- | :--- |
-| **IRON** | Minerai de fer |
-| **COAL** | Minerai de charbon |
-| **REDSTONE** | Minerai de charbon |
-| **GOLD** | Minerai de or |
-| **COPPER** | Minerai de cuivre |
-| **LAPISLAZULI** | Minerai de lapis-lazuli |
-| **EMERALD** | Minerai de émeraude |
-| **DIAMOND** | Minerai de diamant |
-| **NETHERQUARTZ** | Minerai de quartz |
-| **NETHERGOLD** | Minerai de or nether |
-| **ANCIENTDEBRIS** | Minerai de netherite |
+| **iron** | Minerai de fer |
+| **coal** | Minerai de charbon |
+| **redstone** | Minerai de charbon |
+| **gold** | Minerai de or |
+| **copper** | Minerai de cuivre |
+| **lapis** | Minerai de lapis-lazuli |
+| **emerald** | Minerai de émeraude |
+| **diamond** | Minerai de diamant |
+| **quartz** | Minerai de quartz |
+| **nethergold** | Minerai de or nether |
+| **debris** | Minerai de netherite |
 
 # Nomenclature des images
 
