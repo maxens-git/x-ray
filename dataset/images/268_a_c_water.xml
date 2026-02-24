@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>268_a_c_water.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\268_a_c_water.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>coal</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>48</xmin>
+			<ymin>71</ymin>
+			<xmax>584</xmax>
+			<ymax>341</ymax>
+		</bndbox>
+	</object>
+</annotation>

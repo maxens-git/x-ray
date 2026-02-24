@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>178_a_f_unknown.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\178_a_f_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>iron</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>267</xmin>
+			<ymin>128</ymin>
+			<xmax>348</xmax>
+			<ymax>201</ymax>
+		</bndbox>
+	</object>
+</annotation>

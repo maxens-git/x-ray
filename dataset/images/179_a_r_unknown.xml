@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>179_a_r_unknown.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\179_a_r_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>redstone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>240</xmin>
+			<ymin>95</ymin>
+			<xmax>330</xmax>
+			<ymax>210</ymax>
+		</bndbox>
+	</object>
+</annotation>

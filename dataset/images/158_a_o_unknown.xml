@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>158_a_o_unknown.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\158_a_o_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gold</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>443</xmin>
+			<ymin>132</ymin>
+			<xmax>533</xmax>
+			<ymax>219</ymax>
+		</bndbox>
+	</object>
+</annotation>

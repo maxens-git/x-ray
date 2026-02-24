@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>272_a_o_mineshaft.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\272_a_o_mineshaft.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gold</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>247</xmin>
+			<ymin>236</ymin>
+			<xmax>319</xmax>
+			<ymax>335</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>150_a_l_unknown.png</filename>
+	<path>C:\Users\yannj\Desktop\YANN\N7\2A\Apprentissage\Projet\x-ray\dataset\images\150_a_l_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>lapis</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>420</xmin>
+			<ymin>142</ymin>
+			<xmax>502</xmax>
+			<ymax>235</ymax>
+		</bndbox>
+	</object>
+</annotation>
