@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>98_a_r_deepdark.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/98_a_r_deepdark.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>redstone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>234</xmin>
+			<ymin>158</ymin>
+			<xmax>260</xmax>
+			<ymax>177</ymax>
+		</bndbox>
+	</object>
+</annotation>

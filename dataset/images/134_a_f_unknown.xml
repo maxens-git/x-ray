@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>134_a_f_unknown.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/134_a_f_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>iron</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>292</xmin>
+			<ymin>114</ymin>
+			<xmax>340</xmax>
+			<ymax>162</ymax>
+		</bndbox>
+	</object>
+</annotation>

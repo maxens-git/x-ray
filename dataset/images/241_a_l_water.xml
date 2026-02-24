@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>241_a_l_water.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/241_a_l_water.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>lapis</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>261</xmin>
+			<ymin>204</ymin>
+			<xmax>385</xmax>
+			<ymax>276</ymax>
+		</bndbox>
+	</object>
+</annotation>

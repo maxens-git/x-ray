@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>316_a_c_mountain.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/316_a_c_mountain.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>coal</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>353</xmin>
+			<ymin>108</ymin>
+			<xmax>410</xmax>
+			<ymax>172</ymax>
+		</bndbox>
+	</object>
+</annotation>

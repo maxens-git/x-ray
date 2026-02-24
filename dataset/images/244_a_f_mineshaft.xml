@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>244_a_f_mineshaft.png</filename>
+	<path>/Users/maxens/x-ray/dataset/images/244_a_f_mineshaft.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>iron</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>257</xmin>
+			<ymin>132</ymin>
+			<xmax>353</xmax>
+			<ymax>194</ymax>
+		</bndbox>
+	</object>
+</annotation>
