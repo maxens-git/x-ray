@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>354_a_u_unknown.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/354_a_u_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cooper</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>182</xmin>
+			<ymin>16</ymin>
+			<xmax>274</xmax>
+			<ymax>102</ymax>
+		</bndbox>
+	</object>
+</annotation>

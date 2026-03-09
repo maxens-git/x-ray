@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>366_a_u_lava.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/366_a_u_lava.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cooper</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>351</xmin>
+			<ymin>163</ymin>
+			<xmax>449</xmax>
+			<ymax>324</ymax>
+		</bndbox>
+	</object>
+</annotation>

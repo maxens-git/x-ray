@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>419_a_o_nether.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/419_a_o_nether.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>nethergold</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>270</xmin>
+			<ymin>145</ymin>
+			<xmax>375</xmax>
+			<ymax>182</ymax>
+		</bndbox>
+	</object>
+</annotation>

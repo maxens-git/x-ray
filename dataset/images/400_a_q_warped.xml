@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>400_a_q_warped.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/400_a_q_warped.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>quartz</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>287</xmin>
+			<ymin>120</ymin>
+			<xmax>327</xmax>
+			<ymax>169</ymax>
+		</bndbox>
+	</object>
+</annotation>

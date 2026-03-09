@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>409_a_q_fortress.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/409_a_q_fortress.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>quartz</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>224</xmin>
+			<ymin>224</ymin>
+			<xmax>388</xmax>
+			<ymax>312</ymax>
+		</bndbox>
+	</object>
+</annotation>

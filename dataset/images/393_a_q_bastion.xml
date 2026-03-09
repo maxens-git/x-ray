@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>393_a_q_bastion.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/393_a_q_bastion.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>quartz</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>210</xmin>
+			<ymin>199</ymin>
+			<xmax>294</xmax>
+			<ymax>273</ymax>
+		</bndbox>
+	</object>
+</annotation>

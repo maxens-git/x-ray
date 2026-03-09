@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>391_a_o_bastion.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/391_a_o_bastion.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>nethergold</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>315</xmin>
+			<ymin>141</ymin>
+			<xmax>364</xmax>
+			<ymax>175</ymax>
+		</bndbox>
+	</object>
+</annotation>

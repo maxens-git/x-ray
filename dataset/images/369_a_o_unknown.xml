@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>369_a_o_unknown.png</filename>
+	<path>/home/thomasrl/Travail/Annee2/x-ray/dataset/images/369_a_o_unknown.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gold</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>301</xmin>
+			<ymin>81</ymin>
+			<xmax>357</xmax>
+			<ymax>237</ymax>
+		</bndbox>
+	</object>
+</annotation>
