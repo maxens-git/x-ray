@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel} % Gère la typographie française
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs} % Pour de plus beaux tableaux
+\usepackage{float}
+\usepackage{geometry}
+\geometry{hmargin=2.5cm}
+\title{Projet détection d'objets : X-ray}
+\author{Candice Lamy, Julie Mignotte, Maxens Verron, \\ Yann Joly, Thomas Rodrigues--Larcher}
+\date{Mars 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Ce rapport a pour objectif de présenter la constitution du dataset destiné à la détection de minéraux dans le jeu Minecraft, que ce soit en environnement souterrain (grottes) ou en extérieur. Le projet est hébergé à l'URL suivante : \\
+\url{https://github.com/maxens-git/x-ray/}
+
+\section{Description du sujet}
+Le projet consiste à concevoir et implémenter un système de vision par ordinateur capable d'identifier et de localiser en temps réel les différents minerais (Fer, Or, Diamant, etc.) présents dans le champ de vision du joueur.
+
+Dans l'univers de Minecraft, la distinction entre un bloc de roche classique et un bloc de minerai peut être rendue difficile par les variations de luminosité, les effets de particules ou des textures parfois similaires. L'enjeu est donc d'aider le joueur à repérer ces ressources plus efficacement.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{56_a_frl_unknown.png}
+    \caption{Exemple d'image Minecraft à analyser pour la détection de minerais.}
+\end{figure}
+
+Le sujet impose d'analyser une grande variété d'images, prenant en compte la diversité des biomes et des types de minerais. De plus, le modèle doit rester robuste malgré la présence de sources de lumière (torches, lave) ou d'éléments d'interface (HUD, main du joueur, inventaire).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{456_a_qn_soulsand.png}
+    \includegraphics[scale=0.4]{222_a_uc_mountain.png}
+    \caption{Illustration de la diversité des biomes (Nether et Montagne).}
+\end{figure}
+
+\section{Structure et Nomenclature du Dataset}
+
+\subsection{Nomenclature des images}
+Pour faciliter le tri automatique et l'analyse statistique, nous avons adopté le format :\\
+\texttt{\{indice\}\_\{a\_minerai|s\}\_\{biome\}.png}.
+\begin{itemize}
+    \item \textbf{Préfixe :} \texttt{a} (avec minerai) ou \texttt{s} (sans minerai, servant d'exemples négatifs).
+    \item \textbf{Minerais :} Codes abrégés (ex: \texttt{f} pour fer, \texttt{d} pour diamant).
+    \item \textbf{Biomes :} Localisation de la capture (ex: \texttt{deepdark}, \texttt{lushcave}).
+\end{itemize}
+
+\section{Constitution du dataset}
+\subsection{Acquisition, nettoyage et annotation}
+Toutes les images ont été obtenues par des captures d'écran dans le jeu (sauf quelques unes obtenu sur internet). Elles ont ensuite été renommées selon la nomenclature pour nous permettre d'avoir une vue d'ensemble sur la proportion des différents types d'images.
+
+Avant la labellisation, un nettoyage a été effectué : les images floues ou mal cadrées ont été écartées, et les images restantes ont été redimensionnées en $640 \times 360$ pixels via le script \texttt{resize\_image.py} afin d'uniformiser les données pour le modèle.
+
+Pour l'annotation, nous avons utilisé le logiciel \textit{LabelImg}. Les annotations, initialement enregistrées au format \texttt{XML}, sont ensuite traitées pour en extraire les coordonnées ($x_{min}$, $y_{min}$, $x_{max}$, $y_{max}$).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.2]{labelImg.png}
+    \caption{Interface de l'outil d'annotation LabelImg.}
+\end{figure}
+
+\subsection{Structure du fichier de sortie CSV}
+Le script \texttt{RemplirCSV.py} compile l'ensemble des annotations extraites des fichiers XML pour générer un fichier unique de métadonnées. Ce fichier suit la structure suivante :
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Colonne} & \textbf{Description} \\ \hline
+\texttt{id} & Identifiant unique de la ligne d'annotation. \\ \hline
+\texttt{data} & Attribution au segment du dataset (\texttt{TRAIN}, \texttt{VAL} ou \texttt{TEST}). \\ \hline
+\texttt{path} & Chemin d'accès vers le fichier image source. \\ \hline
+\texttt{class} & Étiquette de l'objet détecté (ex : \textit{iron}, \textit{diamond}, etc.). \\ \hline
+\texttt{xmin} & Coordonnée X du coin supérieur gauche de la boîte. \\ \hline
+\texttt{ymin} & Coordonnée Y du coin supérieur gauche de la boîte. \\ \hline
+\texttt{xmax} & Coordonnée X du coin inférieur droit de la boîte. \\ \hline
+\texttt{ymax} & Coordonnée Y du coin inférieur droit de la boîte. \\ \hline
+\end{tabular}
+\caption{Détail des colonnes du fichier CSV d'inventaire du dataset.}
+\end{table}
+
+\subsection{Répartition des données}
+Afin d'obtenir un modèle performant, nous avons opté pour la répartition suivante : 60~\% pour l'entraînement, 20~\% pour la validation et 20~\% pour le test final. 
+
+Cette distribution permet d'allouer la majorité des données à l'apprentissage. Le jeu de validation de 20~\% sert à l'ajustement des hyperparamètres, tandis que le jeu de test, représentant environ 100 images sur un total de 500, permet d'obtenir un score relativement significatif.
+\end{document}
