@@ -33,7 +33,7 @@ def parse_xml(xml_path):
     return objects
 
 def main():
-    fieldnames = ["id", "data", "path", "class", "width", "height", "xmin", "ymin", "xmax", "ymax", "meta"]
+    fieldnames = ["id", "path", "class", "width", "height", "xmin", "ymin", "xmax", "ymax", "meta"]
     
     # Lire les entrées existantes
     existing_rows = []
@@ -68,7 +68,6 @@ def main():
                 max_id += 1
                 new_row = {
                     "id": max_id,
-                    "data": "TRAIN",
                     "path": relative_path,
                     "class": data["class"],
                     "width": data["width"],
