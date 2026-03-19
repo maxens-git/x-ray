@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>473_a_q_basalt.png</filename>
+	<path>/Users/maxens/projects/x-ray/dataset/images/473_a_q_basalt.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>360</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>quartz</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>281</xmin>
+			<ymin>123</ymin>
+			<xmax>293</xmax>
+			<ymax>135</ymax>
+		</bndbox>
+	</object>
+</annotation>
