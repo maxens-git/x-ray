@@ -7,7 +7,7 @@
 \usepackage{booktabs} % Pour de plus beaux tableaux
 \usepackage{float}
 \usepackage{geometry}
-\geometry{hmargin=2.5cm}
+\geometry{hmargin=3cm}
 \title{Projet détection d'objets : X-ray}
 \author{Candice Lamy, Julie Mignotte, Maxens Verron, \\ Yann Joly, Thomas Rodrigues--Larcher}
 \date{Mars 2026}
@@ -22,6 +22,12 @@ Ce rapport a pour objectif de présenter la constitution du dataset destiné à 
 
 \section{Description du sujet}
 Le projet consiste à concevoir et implémenter un système de vision par ordinateur capable d'identifier et de localiser en temps réel les différents minerais (Fer, Or, Diamant, etc.) présents dans le champ de vision du joueur.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{Ores.png}
+    \caption{Ensemble des minerais considérés et leur variations.}
+\end{figure}
 
 Dans l'univers de Minecraft, la distinction entre un bloc de roche classique et un bloc de minerai peut être rendue difficile par les variations de luminosité, les effets de particules ou des textures parfois similaires. L'enjeu est donc d'aider le joueur à repérer ces ressources plus efficacement.
 
@@ -53,9 +59,11 @@ Pour faciliter le tri automatique et l'analyse statistique, nous avons adopté l
 
 \section{Constitution du dataset}
 \subsection{Acquisition, nettoyage et annotation}
-Toutes les images ont été obtenues par des captures d'écran dans le jeu (sauf quelques unes obtenu sur internet). Elles ont ensuite été renommées selon la nomenclature pour nous permettre d'avoir une vue d'ensemble sur la proportion des différents types d'images.
+Toutes les images ont été obtenues par des captures d'écran dans le jeu (sauf deux obtenues sur internet ). Elles ont été prises dans différents biomes, à différentes profondeurs et dans les deux mondes du jeu en contenant (Monde principal et Nether). Un effort a été fait pour que les minerais se situent à des distances variées du joueur et ne soient pas tout le temps au centre de l'image.
 
-Avant la labellisation, un nettoyage a été effectué : les images floues ou mal cadrées ont été écartées, et les images restantes ont été redimensionnées en $640 \times 360$ pixels via le script \texttt{resize\_image.py} afin d'uniformiser les données pour le modèle.
+Les images ont ensuite été renommées selon la nomenclature pour nous permettre d'avoir une vue d'ensemble sur la proportion des différents types d'images.
+
+Avant la labellisation, un nettoyage a été effectué : les images floues ou ne contenant pas de minerais visibles ont été écartées, et les images restantes ont été redimensionnées en $640 \times 360$ pixels via le script \texttt{resize\_image.py} afin d'uniformiser les données pour le modèle.
 
 Pour l'annotation, nous avons utilisé le logiciel \textit{LabelImg}. Les annotations, initialement enregistrées au format \texttt{XML}, sont ensuite traitées pour en extraire les coordonnées ($x_{min}$, $y_{min}$, $x_{max}$, $y_{max}$).
 
@@ -65,8 +73,11 @@ Pour l'annotation, nous avons utilisé le logiciel \textit{LabelImg}. Les annota
     \caption{Interface de l'outil d'annotation LabelImg.}
 \end{figure}
 
+Après qu'une partie de la base ai été formée, nous avons utilisé un script \texttt{analyser\_dataset.py} sur l'ensemble des images. Ce script prend en compte le nom des fichier pour donner un état de la répartition des minerais et des biomes dans notre base de donnée. Cela a permi d'adapter la recherche d'images supplémentaires en se concentrant sur les ensembles peu représentés.
+
+
 \subsection{Structure du fichier de sortie CSV}
-Le script \texttt{RemplirCSV.py} compile l'ensemble des annotations extraites des fichiers XML pour générer un fichier unique de métadonnées. Ce fichier suit la structure suivante :
+Le script \texttt{RemplirCSV.py} compile l'ensemble des annotations extraites des fichiers XML pour générer un fichier unique de métadonnées : \texttt{index.csv}. Ce fichier ne constitue pas encore la répartition des données. Il suit la structure suivante :
 
 \begin{table}[H]
 \centering
@@ -85,8 +96,23 @@ Le script \texttt{RemplirCSV.py} compile l'ensemble des annotations extraites de
 \caption{Détail des colonnes du fichier CSV d'inventaire du dataset.}
 \end{table}
 
-\subsection{Répartition des données}
-Afin d'obtenir un modèle performant, nous avons opté pour la répartition suivante : 60~\% pour l'entraînement, 20~\% pour la validation et 20~\% pour le test final. 
+Dans le cas où une image contient plusieurs minerais, plusieurs lignes dans le csv correspondent pour cette image (une par type de minerais).
 
-Cette distribution permet d'allouer la majorité des données à l'apprentissage. Le jeu de validation de 20~\% sert à l'ajustement des hyperparamètres, tandis que le jeu de test, représentant environ 100 images sur un total de 500, permet d'obtenir un score relativement significatif.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{datasetCsv.png}
+    \caption{Exemple de la base de donnée}
+\end{figure}
+
+\subsection{Répartition des données}
+Afin d'obtenir un modèle performant, nous avons opté pour la répartition suivante : 60~\% pour l'entraînement, 20~\% pour la validation et 20~\% pour le test final. Cette distribution permet d'allouer la majorité des données à l'apprentissage. 
+
+Pour réaliser la répartition, nous avons de nouveau utilisé un script Python \texttt{splitDataset.py}. Ce script crée un fichier \texttt{split.csv} qui contient la répartition des données. Pour chaque classe (les minerais), il examine la répartition de ces derniers dans les différents biomes, et alloue une proportion équivalente à celle mentionnée pour chaque biome et chaque minerai.
+
+
+\section{Remarques et Conclusion}
+Certains biomes et minerais sont plutôt sous représentés par rapport à d'autres dans notre base de données, cela étant principalement dû à la génération de minecraft et à la rareté desdits mineraits (exemple : anciens débris, émeraude, etc.).
+
+Nous avions deux approches possibles pour détourer les boundings boxs autour des minérais. Soit entourer un gisement d'un même minerais en entier par une unique bounding box, soit entourer chacun des minerais du gisement séparément. Pour des soucis de temps et pour une meilleure cohérence vis à vis du joueur, nous avons décidé de partir sur la première option, au risque de complexifier l'apprentissage (plus de formes différentes).
+
 \end{document}
