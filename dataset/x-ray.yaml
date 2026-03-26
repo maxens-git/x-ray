@@ -1,0 +1,20 @@
+path: ./dataset # dataset root dir
+train: images/train # train images (relative to 'path')
+val: images/val # val images (relative to 'path') 
+test: images/test
+
+# Classes
+names:
+    0:  IRON
+    1:  COAL
+    2:  REDSTONE
+    3:  GOLD
+    4:  COPPER
+    5:  LAPIS
+    6:  EMERALD
+    7:  DIAMOND
+    8:  QUARTZ
+    9:  NETHERGOLD
+    10: DEBRIS
+# Download script/URL (optional)
+#download: https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-seg.zip
